@@ -26,14 +26,12 @@ export class ProductsFacadeService {
   constructor() {
     this._store.dispatch(new ProductsActions.GetAll({}, {
       onComplete : () => {
-        console.log("Completado");
       },
       onError: (error) => {
         console.log(error)
 
       },
       onResult : (result) => {
-        console.log(result);
       },
       onLoading : () => {
         console.log("Cargando");

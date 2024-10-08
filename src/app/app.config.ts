@@ -6,6 +6,7 @@ import { provideStore } from '@ngxs/store';
 import { ProductsState } from './application/states/products/products.state';
 import { ProductsService } from './infraestructure/services/products.service';
 import { ProductRepository } from './domain/repositories/Product.repository';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
       useClass : ProductsService,
       provide: ProductRepository
     },
+    provideHttpClient(),
     provideStore([ProductsState]),
   ],
 };

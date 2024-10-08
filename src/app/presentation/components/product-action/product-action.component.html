@@ -1,0 +1,32 @@
+<form [formGroup]="form" class="flex flex-col gap-2"   (ngSubmit)="onSubmit()"  >
+  <div class="flex flex-col gap-2">
+    <span>Title</span>
+    <input type="text" class="border border-primary rounded-md p-2"  formControlName="title" placeholder="Title" >
+  </div>
+  <div class="flex flex-col gap-2">
+
+    <span>Description</span>
+    <textarea type="text" class="border border-primary rounded-md p-2"  formControlName="description" placeholder="example of description of product" ></textarea>
+  </div>
+
+  <div class="flex flex-col gap-2">
+
+    <span>Category</span>
+    <input type="text" class="border border-primary rounded-md p-2"  formControlName="category" placeholder="special" >
+  </div>
+  <div class="flex flex-col gap-2">
+
+    <span>Price</span>
+    <input type="number" class="border border-primary rounded-md p-2"  formControlName="price" placeholder="10.00" >
+  </div>
+
+
+  <button type="submit" class=" w-full p-2 gap-2 border rounded-md cursor-pointer" >
+    Realizar
+  </button>
+
+  <button  type="button" (click)="onDelete()"  class=" w-full p-2 gap-2 border rounded-md cursor-pointer" >
+    Eliminar
+  </button>
+
+</form>

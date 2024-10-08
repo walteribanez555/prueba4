@@ -7,7 +7,7 @@ export namespace ProductsActions {
 
   export class Get{
     static readonly type = '[Products] Get item';
-    constructor( readonlyid : number, readonly callback? :StateCallback<ProductEntity, string>){}
+    constructor( readonly id : number, readonly callback? :StateCallback<ProductEntity, string>){}
   }
 
   export class GetAll {

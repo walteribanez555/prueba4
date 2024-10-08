@@ -1,10 +1,12 @@
+import { ProductDao } from "../../infraestructure/daos/products/Products.dao";
+
 export class ProductEntity {
    constructor(
-    private readonly id : number,
-    private readonly title : string,
-    private readonly description? : string,
-    private readonly category? :string,
-    private readonly price? : number,
+    public readonly id : number,
+    public readonly title : string,
+    public readonly description? : string,
+    public readonly category? :string,
+    public readonly price? : number,
    ) {
 
    }
@@ -20,5 +22,10 @@ export class ProductEntity {
 
 
     return [ undefined, new ProductEntity(id, title, description, category, price)];
+  }
+
+  public static fromDAO( productDao : ProductDao) {
+    return [undefined, new ProductEntity(productDao.id, productDao.title, productDao.description, productDao.category, productDao.price)]
+
   }
 }

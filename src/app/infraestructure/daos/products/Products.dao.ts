@@ -10,18 +10,23 @@ export class ProductsResponseDAO {
   static fromObj(props: { [key: string]: any }) {
     const { products, total , skip ,limit} = props;
 
-    if(!products) return ['PRODUCT RESPONSE DAO: products are required' , undefined];
-    if(!total) return ['PRODUCT RESPONSE DAO: total are required' , undefined];
-    if(!skip) return ['PRODUCT RESPONSE DAO: skip required' , undefined];
-    if(!limit) return ['PRODUCT RESPONSE DAO: limit are required' , undefined];
 
-    let productsMapped : ProductDao[] = products.forEach( (p : any) => {
+
+    if(!products) return ['PRODUCT RESPONSE DAO: products are required' , undefined];
+    if(total == null) return ['PRODUCT RESPONSE DAO: total are required' , undefined];
+    if(skip == null ) return ['PRODUCT RESPONSE DAO: skip required' , undefined];
+    if(limit == null) return ['PRODUCT RESPONSE DAO: limit are required' , undefined];
+
+
+
+    const productsMapped : ProductDao[] = products.map( (p : any) => {
       const [err, dto] = ProductDao.fromObj(p);
 
       if(err) throw Error(err as string);
 
       return dto as ProductDao
     });
+
 
 
     return [undefined, new ProductsResponseDAO(productsMapped, total,skip,limit)];
