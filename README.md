@@ -20,7 +20,6 @@ Clean Architecture
 [POSTMAN DOCUMENTATION](https://documenter.getpostman.com/view/11985015/2sAXxPBYej)
 
 
-
 ## Stack
 Tailwind
 Ngxs
